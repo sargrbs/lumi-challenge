@@ -1,21 +1,19 @@
 import styled from 'styled-components'
+import { Outlet } from 'react-router-dom'
 import Header from '../header/header'
 import Footer from '../footer/footer'
-import { Outlet } from 'react-router-dom'
 
 const BaseLayout = () => {
   return (
-    <>
-      <FullWrapper>
-        <Wrapper>
-          <Header />
-          <ContentWrapper>
-            <Outlet />
-          </ContentWrapper>
-          <Footer />
-        </Wrapper>
-      </FullWrapper>
-    </>
+    <FullWrapper>
+      <Wrapper>
+        <Header />
+        <ContentWrapper>
+          <Outlet />
+        </ContentWrapper>
+        <Footer />
+      </Wrapper>
+    </FullWrapper>
   )
 }
 
@@ -35,5 +33,13 @@ const Wrapper = styled.div`
 
 const ContentWrapper = styled.main`
   flex: 1;
-  padding: 2rem;
+  margin: 1rem;
+
+  background-color: #f8f8f9;
+  box-shadow: 0 2px 4px rgb(203 203 203 / 10%);
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `

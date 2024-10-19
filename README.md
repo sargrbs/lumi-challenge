@@ -1,50 +1,85 @@
-# React + TypeScript + Vite
+  # Gerenciamento de Faturas - Frontend React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  Este projeto é o frontend para uma aplicação de gerenciamento de faturas de energia elétrica, desenvolvido com React, TypeScript e Vite.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ # Visão Geral
+    O aplicativo oferece as seguintes funcionalidades principais:
 
-## Expanding the ESLint configuration
+    Página inicial (Home)
+    Dashboard com gráficos
+    Biblioteca de faturas para gerenciamento (upload e exclusão)
+    Visualização detalhada de faturas (com futura implementação de download)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  # Tecnologias Principais
 
-- Configure the top-level `parserOptions` property like this:
+    React 18
+    TypeScript
+    Vite
+    React Router DOM
+    Styled Components
+    Axios
+    Recharts (para gráficos)
+    React Modal
+    React Toastify
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  # Requisitos do Sistema
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+    Node.js versão 18.x ou superior
+    npm
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  # Instalação
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+    Clone o repositório:
+      git clone [URL_DO_REPOSITÓRIO]
+
+    Navegue até o diretório do projeto:
+      cd [NOME_DO_DIRETÓRIO]
+
+    Instale as dependências:
+      npm install
+
+    Crie um arquivo .env na raiz do projeto e configure as variáveis de ambiente necessárias (por exemplo, URL da API).
+
+    Scripts Disponíveis
+    No diretório do projeto, você pode executar:
+
+    npm run dev: Inicia o servidor de desenvolvimento Vite.
+    npm run build: Compila o projeto TypeScript e constrói a versão de produção.
+    npm run lint: Executa o ESLint para verificação de código.
+    npm run preview: Inicia um servidor local para pré-visualização da versão de produção.
+    npm run format: Formata o código usando Prettier.
+    
+  # Desenvolvimento
+    Para iniciar o desenvolvimento:
+
+    Execute npm run dev
+    Abra http://localhost:5173 no seu navegador
+
+    O Hot Module Replacement (HMR) está ativado por padrão, permitindo atualizações em tempo real durante o desenvolvimento.
+
+  # Estrutura do Projeto
+    A estrutura principal do projeto é organizada da seguinte forma:
+      src/
+    ├── assets/
+    ├── data/
+    ├── protocols/
+    ├── usecases/
+    ├── domain/
+    ├── infra/
+    ├── main/
+    ├── presentation/
+    │   ├── components/
+    │   └── pages/
+    ├── styles/
+    ├── main.tsx
+    └── vite-env.d.ts
+
+  # Roteamento
+    O roteamento é gerenciado usando react-router-dom. Novas rotas podem ser adicionadas no arquivo src/presentation/components/routes/index.tsx.
+
+  # Estilização
+    O projeto utiliza Styled Components para estilização. Os estilos globais estão definidos em src/styles/global.css, e o tema em src/styles/theme.ts.
+
+  # Comunicação com a API
+    As requisições para a API são feitas através do Axios. O arquivo para criar novas requisições é src/main/usecases/invoice/invoice-factory.ts.

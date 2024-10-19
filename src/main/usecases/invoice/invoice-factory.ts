@@ -15,18 +15,16 @@ export const createInvoice = (): RemotePostInvoice => {
   return new RemotePostInvoice('/api/invoices/upload', makeAxiosHttpClient())
 }
 
-export const getInvoiceByClient = (clientNumber: string): RemoteLoadInvoice => {
-  return new RemoteLoadInvoice(
-    `/api/invoices/client/${clientNumber}`,
-    makeAxiosHttpClient()
-  )
-}
+export const getInvoicePerPage = (
+  page: number,
+  clientNumber?: string | boolean,
+  referenceMonth?: string | boolean
+): RemoteLoadInvoice => {
+  let url = `/api/invoices/page/${page}`
+  if (clientNumber !== false) url += `/${clientNumber}`
+  if (referenceMonth !== false) url += `/${referenceMonth}`
 
-export const getInvoicePerPage = (page: number): RemoteLoadInvoice => {
-  return new RemoteLoadInvoice(
-    `/api/invoices/page/${page}`,
-    makeAxiosHttpClient()
-  )
+  return new RemoteLoadInvoice(url, makeAxiosHttpClient())
 }
 
 export const deleteInvoiceById = (id: string): RemoteDeleteInvoice => {

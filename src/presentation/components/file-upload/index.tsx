@@ -2,9 +2,11 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { createInvoice } from '../../../main/usecases/invoice/invoice-factory'
 import { showToast } from '../toast-notification'
+import { customTheme } from '../../../styles/theme'
 
-const FileUpload = () => {
+const FileUpload: React.FC<{ onUpload: () => void }> = ({ onUpload }) => {
   const [file, setFile] = useState<File | null>(null)
+  const [openForm, setOpenForm] = useState(false)
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -22,16 +24,17 @@ const FileUpload = () => {
     formData.append('invoice', file)
 
     try {
-      await createInvoice().post(formData) 
+      await createInvoice().post(formData)
       showToast('Fatura enviada com sucesso', 'success')
       setFile(null)
       if (document.querySelector<HTMLInputElement>('input[type="file"]')) {
-        (
+        ;(
           document.querySelector<HTMLInputElement>(
             'input[type="file"]'
           ) as HTMLInputElement
         ).value = ''
       }
+      onUpload()
     } catch (error) {
       console.error('Erro ao enviar a fatura:', error)
       showToast(
@@ -41,14 +44,26 @@ const FileUpload = () => {
     }
   }
 
-  return (
-    <FormWrapper>
-      <input type="file" onChange={handleFileChange} accept=".pdf" />
-      <Button onClick={handleUpload} disabled={!file}>
-        Upload Fatura
+  if (!openForm) {
+    return (
+      <Button
+        onClick={() => {
+          setOpenForm(true)
+        }}
+      >
+        Importar Fatura
       </Button>
-    </FormWrapper>
-  )
+    )
+  } else {
+    return (
+      <FormWrapper>
+        <input type="file" onChange={handleFileChange} accept=".pdf" />
+        <Button onClick={handleUpload} disabled={!file} $bgdisabled={!file}>
+          Upload Fatura
+        </Button>
+      </FormWrapper>
+    )
+  }
 }
 
 export default FileUpload
@@ -61,14 +76,17 @@ const FormWrapper = styled.div`
 
 const Button = styled.button<any>`
   padding: 8px 16px;
-  background-color: #007bff;
+  background-color: ${(props) =>
+    props.$bgdisabled
+      ? customTheme.colors.hover
+      : customTheme.colors.secondary};
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: ${customTheme.colors.hover};
   }
 
   ${(props) =>

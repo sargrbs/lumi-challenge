@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { customTheme } from '../../../styles/theme'
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
 export default Footer
 
 const FooterContainer = styled.footer`
-  background-color: #2c3e50;
+  background-color: ${customTheme.colors.primary};
   color: #ecf0f1;
   padding: 1rem;
   text-align: center;

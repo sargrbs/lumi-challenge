@@ -37,13 +37,6 @@ export class AxiosHttpClient {
         body: axiosResponse.data,
       }
     } catch (error: any) {
-      if (error.response) {
-        console.error('AxiosHttpClient - Detalhes do erro:', {
-          status: error.response.status,
-          data: error.response.data,
-          headers: error.response.headers,
-        })
-      }
       return {
         statusCode: error.response?.status || 500,
         body: error.response?.data,

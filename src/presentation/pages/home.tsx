@@ -12,9 +12,9 @@ const Home = () => {
 
       <ActionsContainer>
         <ActionCard>
-          <ActionTitle>Importar Nova Fatura</ActionTitle>
+          <ActionTitle>Importar Fatura</ActionTitle>
           <ActionDescription>
-            Adicione novas faturas ao sistema para manter seus dados
+            Adicione novas faturas para manter seus dados
             atualizados.
           </ActionDescription>
           <ActionLink to="/invoices">Importar Fatura</ActionLink>
@@ -39,18 +39,30 @@ const HomeContainer = styled.div`
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `
 
 const WelcomeTitle = styled.h1`
   color: #2c3e50;
   font-size: 2.5rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `
 
 const Subtitle = styled.p`
   color: #34495e;
   font-size: 1.2rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `
 
 const ActionsContainer = styled.div`
@@ -58,6 +70,12 @@ const ActionsContainer = styled.div`
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 `
 
 const ActionCard = styled.div`
@@ -71,18 +89,31 @@ const ActionCard = styled.div`
   &:hover {
     transform: translateY(-5px);
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+  }
 `
 
 const ActionTitle = styled.h2`
   color: #2c3e50;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `
 
 const ActionDescription = styled.p`
   color: #7f8c8d;
   font-size: 1rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `
 
 const ActionLink = styled(Link)`
