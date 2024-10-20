@@ -4,14 +4,19 @@ import Header from '../header/header'
 import Footer from '../footer/footer'
 
 const BaseLayout = () => {
+  console.log(window.location.pathname)
   return (
     <FullWrapper>
       <Wrapper>
-        <Header />
+        {!['/login', '/login/*'].includes(window.location.pathname) && (
+          <Header />
+        )}
         <ContentWrapper>
           <Outlet />
         </ContentWrapper>
-        <Footer />
+        {!['/login', '/login/*'].includes(window.location.pathname) && (
+          <Footer />
+        )}
       </Wrapper>
     </FullWrapper>
   )
@@ -41,5 +46,13 @@ const ContentWrapper = styled.main`
 
   @media (max-width: 768px) {
     padding: 1rem;
+  }
+
+  .cl-rootBox {
+    margin-top: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `

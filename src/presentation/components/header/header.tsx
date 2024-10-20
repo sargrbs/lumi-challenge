@@ -3,6 +3,12 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Menu } from 'lucide-react'
 import { customTheme } from '../../../styles/theme'
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from '@clerk/clerk-react'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -35,6 +41,16 @@ const Header = () => {
             <StyledLink to="/invoices-download" onClick={toggleMenu}>
               Download
             </StyledLink>
+          </MenuItem>
+          <MenuItem>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </MenuItem>
+          <MenuItem>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
           </MenuItem>
         </MenuList>
       </Nav>

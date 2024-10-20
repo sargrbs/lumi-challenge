@@ -83,7 +83,7 @@ const Dashboard = () => {
         totalConsumption: acc.totalConsumption + invoice.totalConsumption,
         totalCompensated: acc.totalCompensated + invoice.economyGDIQuantity,
         totalWithoutGD: acc.totalWithoutGD + invoice.totalWithoutGD,
-        totalSavings: acc.totalSavings + invoice.economyGDITotal,
+        totalSavings: acc.totalSavings + Math.abs(invoice.economyGDITotal),
       }),
       {
         totalConsumption: 0,

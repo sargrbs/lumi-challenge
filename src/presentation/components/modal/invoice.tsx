@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Modal from 'react-modal'
 import styled from 'styled-components'
 import { customTheme } from '../../../styles/theme'
@@ -9,6 +10,10 @@ interface IInvoiceProps {
 }
 
 const InvoiceModal = ({ isOpen, onRequestClose, invoice }: IInvoiceProps) => {
+  useEffect(() => {
+    Modal.setAppElement('#root')
+  }, [])
+
   if (!invoice) return null
 
   const formatDueDate = (dateString: string) => {
@@ -126,8 +131,10 @@ const Card = styled.div`
   border-radius: 8px;
   padding: 20px;
   max-width: 500px;
-  width: 100%;
+  max-width: 90%;
   position: relative;
+  overflow: auto;
+  max-height: 80vh;
 `
 
 const Title = styled.h2`

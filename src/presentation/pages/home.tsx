@@ -14,8 +14,7 @@ const Home = () => {
         <ActionCard>
           <ActionTitle>Importar Fatura</ActionTitle>
           <ActionDescription>
-            Adicione novas faturas para manter seus dados
-            atualizados.
+            Adicione novas faturas para manter seus dados atualizados.
           </ActionDescription>
           <ActionLink to="/invoices">Importar Fatura</ActionLink>
         </ActionCard>

@@ -1,9 +1,9 @@
-  # Gerenciamento de Faturas - Frontend React + TypeScript + Vite
+# Gerenciamento de Faturas - Frontend React + TypeScript + Vite
 
-  Este projeto é o frontend para uma aplicação de gerenciamento de faturas de energia elétrica, desenvolvido com React, TypeScript e Vite.
+Este projeto é o frontend para uma aplicação de gerenciamento de faturas de energia elétrica, desenvolvido com React, TypeScript e Vite.
 
+# Visão Geral
 
- # Visão Geral
     O aplicativo oferece as seguintes funcionalidades principais:
 
     Página inicial (Home)
@@ -11,7 +11,7 @@
     Biblioteca de faturas para gerenciamento (upload e exclusão)
     Visualização detalhada de faturas (com futura implementação de download)
 
-  # Tecnologias Principais
+# Tecnologias Principais
 
     React 18
     TypeScript
@@ -23,12 +23,12 @@
     React Modal
     React Toastify
 
-  # Requisitos do Sistema
+# Requisitos do Sistema
 
     Node.js versão 18.x ou superior
     npm
 
-  # Instalação
+# Instalação
 
     Clone o repositório:
       git clone [URL_DO_REPOSITÓRIO]
@@ -49,8 +49,9 @@
     npm run lint: Executa o ESLint para verificação de código.
     npm run preview: Inicia um servidor local para pré-visualização da versão de produção.
     npm run format: Formata o código usando Prettier.
-    
-  # Desenvolvimento
+
+# Desenvolvimento
+
     Para iniciar o desenvolvimento:
 
     Execute npm run dev
@@ -58,7 +59,8 @@
 
     O Hot Module Replacement (HMR) está ativado por padrão, permitindo atualizações em tempo real durante o desenvolvimento.
 
-  # Estrutura do Projeto
+# Estrutura do Projeto
+
     A estrutura principal do projeto é organizada da seguinte forma:
       src/
     ├── assets/
@@ -75,11 +77,14 @@
     ├── main.tsx
     └── vite-env.d.ts
 
-  # Roteamento
+# Roteamento
+
     O roteamento é gerenciado usando react-router-dom. Novas rotas podem ser adicionadas no arquivo src/presentation/components/routes/index.tsx.
 
-  # Estilização
+# Estilização
+
     O projeto utiliza Styled Components para estilização. Os estilos globais estão definidos em src/styles/global.css, e o tema em src/styles/theme.ts.
 
-  # Comunicação com a API
+# Comunicação com a API
+
     As requisições para a API são feitas através do Axios. O arquivo para criar novas requisições é src/main/usecases/invoice/invoice-factory.ts.

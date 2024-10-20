@@ -15,15 +15,43 @@ const Route = ({ data }: any) => {
           }
         >
           {item.map(
-            ({ path, component: Component, ...route }: any, idx: any) => (
-              <ReactRoute
-                key={`${index}-${idx}`}
-                path={path}
-                element={<Component />}
-                {...route}
-                exact={route.exact || true}
-              />
-            )
+            (
+              { path, component: Component, children, ...route }: any,
+              idx: any
+            ) =>
+              children ? (
+                <ReactRoute
+                  key={`${index}-${idx}`}
+                  path={path}
+                  element={<Component />}
+                  {...route}
+                >
+                  {children.map(
+                    (
+                      {
+                        path: childPath,
+                        component: ChildComponent,
+                        ...childRoute
+                      }: any,
+                      childIdx: any
+                    ) => (
+                      <ReactRoute
+                        key={`${index}-${idx}-${childIdx}`}
+                        path={childPath}
+                        element={<ChildComponent />}
+                        {...childRoute}
+                      />
+                    )
+                  )}
+                </ReactRoute>
+              ) : (
+                <ReactRoute
+                  key={`${index}-${idx}`}
+                  path={path}
+                  element={<Component />}
+                  {...route}
+                />
+              )
           )}
         </ReactRoute>
       ))}
