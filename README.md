@@ -22,6 +22,7 @@ Este projeto é o frontend para uma aplicação de gerenciamento de faturas de e
     Recharts (para gráficos)
     React Modal
     React Toastify
+    Clerk (Auth)
 
 # Requisitos do Sistema
 
@@ -57,6 +58,8 @@ Este projeto é o frontend para uma aplicação de gerenciamento de faturas de e
     Execute npm run dev
     Abra http://localhost:5173 no seu navegador
 
+    Crie uma conta para se autenticar no frontend
+
     O Hot Module Replacement (HMR) está ativado por padrão, permitindo atualizações em tempo real durante o desenvolvimento.
 
 # Estrutura do Projeto
@@ -87,4 +90,7 @@ Este projeto é o frontend para uma aplicação de gerenciamento de faturas de e
 
 # Comunicação com a API
 
-    As requisições para a API são feitas através do Axios. O arquivo para criar novas requisições é src/main/usecases/invoice/invoice-factory.ts.
+    As requisições para a API são feitas através do Axios.
+    O arquivo para criar novas requisições é src/main/usecases/invoice/invoice-factory.ts.
+
+    Autenticação no lado do servidor não foi implementada, apenas bloqueio via CORS

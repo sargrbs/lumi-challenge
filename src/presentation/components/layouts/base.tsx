@@ -4,7 +4,6 @@ import Header from '../header/header'
 import Footer from '../footer/footer'
 
 const BaseLayout = () => {
-  console.log(window.location.pathname)
   return (
     <FullWrapper>
       <Wrapper>

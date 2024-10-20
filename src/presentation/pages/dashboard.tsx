@@ -100,6 +100,8 @@ const Dashboard = () => {
 
   return (
     <DashboardContainer>
+      <h1>Dashboard</h1>
+      <h3>Filtre por número do cliente</h3>
       <FilterContainer>
         <FormGroup>
           <LabelForm>Número do Cliente</LabelForm>
